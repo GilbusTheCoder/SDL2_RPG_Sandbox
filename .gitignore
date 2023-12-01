@@ -1,0 +1,8 @@
+# Directories
+.vs/
+out-bin/
+int-bin/
+
+# Filetypes
+*.user
+Sandbox/*.vcxproj
