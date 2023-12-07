@@ -16,14 +16,15 @@ workspace "SDL2_RPG_Sandbox"
         objdir ("int-bin/" .. output_dir .. "/%{prj.name}")     -- Intermediate Dir
 
         pchheader "pch.h"
-        pchsource "%{prj.name}/src/pch.cpp"                             -- Required for visual studio, excluded by other compilers
+        pchsource "%{prj.name}/src/game/def/pch.cpp"                    -- Required for visual studio, excluded by other compilers
         files { "%{prj.name}/src/**.h", "%{prj.name}/src/**.cpp" }      -- What do we want to include in the project make
         
 
         externalincludedirs {   vendor_dir .. "/SDL2/include",
                                 vendor_dir .. "/SDL2_image/include",
                                 vendor_dir .. "/SDL2_mixer/include",
-                                vendor_dir .. "/SDL2_ttf/include",      }
+                                vendor_dir .. "/SDL2_ttf/include", 
+                                vendor_dir .. "/spdlog/include",     }
 
         links {     "SDL2",
                     "SDL2main",
@@ -48,6 +49,7 @@ workspace "SDL2_RPG_Sandbox"
                 ("{COPYFILE} vendor/SDL2_image/lib/x64/SDL2_image.dll ../out-bin/" .. output_dir .. "/%{prj.name}"),
                 ("{COPYFILE} vendor/SDL2_mixer/lib/x64/SDL2_mixer.dll ../out-bin/" .. output_dir .. "/%{prj.name}"),
                 ("{COPYFILE} vendor/SDL2_ttf/lib/x64/SDL2_ttf.dll ../out-bin/" .. output_dir .. "/%{prj.name}"), }
+                
         filter "configurations:Debug"
             defines { "DEBUG" }
             symbols "On"
