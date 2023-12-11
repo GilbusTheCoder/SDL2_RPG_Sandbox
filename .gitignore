@@ -5,4 +5,5 @@ int-bin/
 
 # Filetypes
 *.user
-Sandbox/*.vcxproj
+**.vcxproj
+**.vcxproj.filters

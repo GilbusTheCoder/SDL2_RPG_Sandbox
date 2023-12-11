@@ -2,7 +2,7 @@
 #include "../hdr/Game.h"
 
 int main(int argc, char** argv) {
-	Game::Game game;
+	Sandbox game;
 	if (!game.init()) { return 0; }
 
 	game.run();

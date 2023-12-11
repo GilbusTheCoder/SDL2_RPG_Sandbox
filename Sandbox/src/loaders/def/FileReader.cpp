@@ -3,11 +3,14 @@
 
 namespace Loaders {
 	std::ifstream* FileReader::_reader = nullptr;
+
 	bool FileReader::initReaderFromPath(const char* filepath) {
 		if (!_reader) { _reader = new std::ifstream(); }
 		
 		_reader->open(filepath);
-		if (!_reader->is_open()) { return false; }
+		if (!_reader->is_open()) { 
+			LOG_ERROR("Failed to open file %s.", filepath);
+			return false; }
 
 		return true; }
 
@@ -50,5 +53,5 @@ namespace Loaders {
 				
 				start_idx = ++end_idx; } }
 
-		return split_lines; } 
+		return split_lines; }  
 }

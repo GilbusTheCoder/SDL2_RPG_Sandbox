@@ -57,3 +57,41 @@ workspace "SDL2_RPG_Sandbox"
         filter "configurations:Release"
             defines { "NDEBUG" }
             optimize "Full"
+
+
+    ---------------------------------
+    ----    SANDBOX TEST CFG     ----
+    ---------------------------------
+    project "GameTests"
+        location "GameTests"
+        kind "ConsoleApp"
+        language "C++"
+
+        targetdir ("out-bin/" .. output_dir .. "/%{prj.name}")  
+        objdir ("int-bin/" .. output_dir .. "/%{prj.name}")                                                 
+        
+        files { "%{prj.name}/src/**.h", 
+                "%{prj.name}/src/**.cpp",
+                vendor_dir .. "/googletest/**.h", 
+                vendor_dir .. "/googletest/**.hpp",
+                vendor_dir .. "/googletest/src/gtest-all.cc" }
+
+        includedirs {   "Sandbox/src",
+                        vendor_dir .. "/googletest/include",
+                        vendor_dir .. "/googletest/" }
+        links { "Sandbox" }
+
+        filter "system:windows"
+            cppdialect "C++20"
+            staticruntime "On"
+            systemversion "latest"
+
+        filter "configurations:Debug"
+            defines "DEBUG"
+            symbols "On"
+
+        filter "configurations:Release"
+            defines "NDEBUG"
+            optimize "On"
+
+        

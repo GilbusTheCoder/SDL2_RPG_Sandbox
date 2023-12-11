@@ -1,0 +1,12 @@
+ 
+  - Add Logging to pre-existing code	  /
+  - Learn how to test code			  	 /
+	* test the code					   \/
+
+  - Build foundations of the Entity Component Manager
+	* Construct Textures and Transforms
+	* Figure out how entities and components will be stored, referenced and passed around
+	* Construct ECLoader & FileReaders
+	* Fill out world_data.txt for testing
+	* Build the system interface and Layered Rendering System
+	s

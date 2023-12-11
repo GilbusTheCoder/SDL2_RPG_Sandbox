@@ -6,7 +6,7 @@ namespace Game {
 		SDL_Renderer* _renderer = nullptr;
 	
 	public:
-		bool init(SDL_Window* window);
+		const bool init(SDL_Window* window);
 		void render();
 		void destroy();
 	

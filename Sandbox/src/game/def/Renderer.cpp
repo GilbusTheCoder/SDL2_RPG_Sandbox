@@ -1,12 +1,12 @@
 #include "pch.h"
 #include "../hdr/Renderer.h"
 
-bool Game::Renderer::init(SDL_Window* window) {
+const bool Game::Renderer::init(SDL_Window* window) {
 	_renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
-	if (!_renderer) {
-		SDL_Log("Renderer >> Couldn't init SDL_Render*\n");
-		return false;	}
 	
+	if (!_renderer) {
+		LOG_ERROR("Failed to initialize SDL_Renderer*");
+		return false; } 
 	return true; }
 
 

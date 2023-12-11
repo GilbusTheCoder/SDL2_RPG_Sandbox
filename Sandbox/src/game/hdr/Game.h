@@ -4,23 +4,21 @@
 #include "Settings.h"
 #include "../../ecs/hdr/ECManager.h"
 
-namespace Game {
-	class Game {
-	private:
-		bool _is_running = false;
-		Window* _window = new Window();
-		Renderer* _renderer = new Renderer();
-		Settings* _settings = new Settings();
+class Sandbox {
+private:
+	bool _is_running = false;
+	Game::Window* _window = new Game::Window();
+	Game::Renderer* _renderer = new Game::Renderer();
+	Game::Settings* _settings = new Game::Settings();
 
-		ECS::ECManager* _ec_manager = new ECS::ECManager();
+	ECS::ECManager* _ec_manager = new ECS::ECManager();
 
-	public:
-		bool init();
-		void run();
-		void quit();
-	
-	private:
-		void update(const int dt);
-		void render();
-	};
-}
+public:
+	const bool init();
+	void run();
+	void quit();
+
+private:
+	void update(const int dt);
+	void render();
+};
